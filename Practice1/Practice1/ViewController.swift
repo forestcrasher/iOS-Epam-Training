@@ -10,6 +10,15 @@ import UIKit
 class ViewController: UIViewController {
     var randomNumber = 0
     var isWinner = false
+    
+    private enum Constants {
+        static let labelGuessed = "Угадал"
+        static let labelMany = "Много"
+        static let labelLittle = "Мало"
+        static let labelEnterNumber = "Введите число"
+        static let buttonLabelCheck = "Проверить"
+        static let buttonLabelStartAgain = "Повторить"
+    }
 
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var answerField: UITextField!
@@ -22,20 +31,21 @@ class ViewController: UIViewController {
     
     func startGame() {
         setRandomNumber()
-        checkButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
     func stopGame() {
-        statusLabel.text = "Угадал"
-        checkButton.setTitle("Заново", for: .normal)
+        statusLabel.text = Constants.labelGuessed
+        checkButton.setTitle(Constants.buttonLabelStartAgain, for: .normal)
         answerField.isUserInteractionEnabled = false
         isWinner = true
     }
     
     func restartGame() {
         setRandomNumber()
+        
         statusLabel.text = ""
-        checkButton.setTitle("Проверить", for: .normal)
+        checkButton.setTitle(Constants.buttonLabelCheck, for: .normal)
+        answerField.text = ""
         answerField.isUserInteractionEnabled = true
         isWinner = false
     }
@@ -48,24 +58,20 @@ class ViewController: UIViewController {
         if let answer = answerField.text {
             if let answerNumber = Int(answer) {
                 if answerNumber > randomNumber {
-                    statusLabel.text = "Много"
+                    statusLabel.text = Constants.labelMany
                 } else if answerNumber < randomNumber {
-                    statusLabel.text = "Мало"
+                    statusLabel.text = Constants.labelLittle
                 } else {
                     stopGame()
                 }
             } else {
-                statusLabel.text = "Введите число"
+                statusLabel.text = Constants.labelEnterNumber
             }
         }
     }
     
     @IBAction func buttonAction() {
-        if isWinner {
-            restartGame()
-        } else {
-            checkAnswer()
-        }
+        isWinner ? restartGame() : checkAnswer()
     }
 }
 
