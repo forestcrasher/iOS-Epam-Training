@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Practice2
 //
-//  Created by Антон Пряхин on 15.02.2020.
+//  Created by Anton Pryakhin on 15.02.2020.
 //
 
 import UIKit
