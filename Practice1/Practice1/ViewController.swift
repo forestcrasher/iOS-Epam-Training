@@ -11,7 +11,8 @@ class ViewController: UIViewController {
     private var game = Model()
     
     @IBOutlet private weak var textField: UITextField!
-    @IBOutlet private weak var button: UIButton!
+    @IBOutlet private weak var checkButton: UIButton!
+    @IBOutlet weak var moveCounter: UILabel!
     
     @IBAction private func touchCheck() {
         if let answer = textField.text, let number = Int(answer) {
@@ -52,8 +53,15 @@ class ViewController: UIViewController {
                 ) { [weak self] _ in
                     self?.textField.text = ""
                     self?.game.start()
+                    self?.updateMoveCounter()
                 }
         }
+        
+        updateMoveCounter()
+    }
+    
+    private func updateMoveCounter() {
+        moveCounter.text = "\(NSLocalizedString("moveCounterTitle", comment: "")): \(game.moveCounter)"
     }
     
     private func showAlert(title: String?, message: String?, actionTitle: String?, actionHandler: ((UIAlertAction) -> Void)? = nil) {
@@ -69,6 +77,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         textField.placeholder = NSLocalizedString("textFieldPlaceholder", comment: "")
-        button.setTitle(NSLocalizedString("buttonTitle", comment: ""), for: .normal)
+        checkButton.setTitle(NSLocalizedString("checkButtonTitle", comment: ""), for: .normal)
+        moveCounter.text = "\(NSLocalizedString("moveCounterTitle", comment: "")): \(game.moveCounter)"
     }
 }

@@ -34,7 +34,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gDx-08-Wh5">
                                 <rect key="frame" x="127.66666666666669" y="389" width="120" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="iTf-St-ByW"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="iTf-St-ByW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -46,11 +46,23 @@
                                     <action selector="touchCheck" destination="WUJ-pw-8ye" eventType="touchUpInside" id="Wb8-uG-hsC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move counter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="za8-7c-HKT">
+                                <rect key="frame" x="16" y="104" width="150" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="g9I-3u-ZUA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Amm-5d-hnR" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="za8-7c-HKT" secondAttribute="trailing" constant="16" id="Bld-yL-B6j"/>
                             <constraint firstItem="gDx-08-Wh5" firstAttribute="centerY" secondItem="USF-6F-RSj" secondAttribute="centerY" id="Eiq-Ue-PlB"/>
+                            <constraint firstItem="za8-7c-HKT" firstAttribute="leading" secondItem="Amm-5d-hnR" secondAttribute="leading" constant="16" id="M8D-gR-qf7"/>
                             <constraint firstItem="w2C-I4-C3v" firstAttribute="top" secondItem="gDx-08-Wh5" secondAttribute="bottom" constant="8" id="VXh-vl-9m2"/>
+                            <constraint firstItem="za8-7c-HKT" firstAttribute="top" secondItem="Amm-5d-hnR" secondAttribute="top" constant="16" id="oye-kd-Wwf"/>
                             <constraint firstItem="gDx-08-Wh5" firstAttribute="centerX" secondItem="USF-6F-RSj" secondAttribute="centerX" id="quQ-9A-exa"/>
                             <constraint firstItem="w2C-I4-C3v" firstAttribute="centerX" secondItem="USF-6F-RSj" secondAttribute="centerX" id="tmK-p0-wtU"/>
                         </constraints>
@@ -58,7 +70,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="fwB-W9-1sO"/>
                     <connections>
-                        <outlet property="button" destination="w2C-I4-C3v" id="ESb-Cn-Xbe"/>
+                        <outlet property="checkButton" destination="w2C-I4-C3v" id="ESb-Cn-Xbe"/>
+                        <outlet property="moveCounter" destination="za8-7c-HKT" id="F2d-hq-YVX"/>
                         <outlet property="textField" destination="gDx-08-Wh5" id="u4f-1z-NsK"/>
                     </connections>
                 </viewController>

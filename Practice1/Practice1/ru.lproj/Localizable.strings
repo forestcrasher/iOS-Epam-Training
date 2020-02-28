@@ -1,6 +1,7 @@
 "mainTitle" = "Угадай число";
 "textFieldPlaceholder" = "Введите число";
-"buttonTitle" = "Проверить";
+"checkButtonTitle" = "Проверить";
+"moveCounterTitle" = "Количество ходов";
 "alertEnterNumber" = "Введите число";
 "alertEnterNumberDescription" = "Поле не должно быть пустым!";
 "alertTooHigh" = "Слишком много";

@@ -1,6 +1,7 @@
 "mainTitle" = "Guess the number";
 "textFieldPlaceholder" = "Enter number";
-"buttonTitle" = "Check";
+"checkButtonTitle" = "Check";
+"moveCounterTitle" = "Move counter";
 "alertEnterNumber" = "Enter number";
 "alertEnterNumberDescription" = "The field should not be empty!";
 "alertTooHigh" = "Too high";

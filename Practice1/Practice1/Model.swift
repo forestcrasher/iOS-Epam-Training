@@ -16,10 +16,12 @@ enum Progress {
 
 struct Model {
     private(set) var progress: Progress?
+    private(set) var moveCounter = 0
     private var randomNumber: Int?
     
     mutating func start() {
         progress = nil
+        moveCounter = 0
         randomNumber = Int.random(in: 0..<100)
     }
     
@@ -33,6 +35,8 @@ struct Model {
         } else {
             progress = .guessed
         }
+        
+        moveCounter += 1
     }
     
     init() {
