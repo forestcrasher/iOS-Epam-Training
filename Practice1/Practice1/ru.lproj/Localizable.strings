@@ -1,0 +1,13 @@
+"mainTitle" = "Угадай число";
+"textFieldPlaceholder" = "Введите число";
+"buttonTitle" = "Проверить";
+"alertEnterNumber" = "Введите число";
+"alertEnterNumberDescription" = "Поле не должно быть пустым!";
+"alertTooHigh" = "Слишком много";
+"alertTooHighDescription" = "Вы ввели слишком большое число!";
+"alertTooLower" = "Слишком мало";
+"alertTooLowerDescription" = "Вы ввели слишком маленькое число!";
+"alertYouGuessed" = "Вы угадали";
+"alertYouGuessedDescription" = "Вы попали в точку!";
+"alertActionAgain" = "Еще раз";
+"alertActionPlayAgain" = "Играть заново";

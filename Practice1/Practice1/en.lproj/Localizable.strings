@@ -1,0 +1,13 @@
+"mainTitle" = "Guess the number";
+"textFieldPlaceholder" = "Enter number";
+"buttonTitle" = "Check";
+"alertEnterNumber" = "Enter number";
+"alertEnterNumberDescription" = "The field should not be empty!";
+"alertTooHigh" = "Too high";
+"alertTooHighDescription" = "You entered too many number!";
+"alertTooLower" = "Too lower";
+"alertTooLowerDescription" = "You entered too small number!";
+"alertYouGuessed" = "You guessed it";
+"alertYouGuessedDescription" = "You hit the nail right on the head!";
+"alertActionAgain" = "Again";
+"alertActionPlayAgain" = "Play again";

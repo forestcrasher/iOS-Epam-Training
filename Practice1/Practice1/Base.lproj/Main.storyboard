@@ -31,17 +31,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gDx-08-Wh5">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gDx-08-Wh5">
                                 <rect key="frame" x="127.66666666666669" y="389" width="120" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="iTf-St-ByW"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2C-I4-C3v">
-                                <rect key="frame" x="164.66666666666666" y="431" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="165.66666666666666" y="431" width="44" height="30"/>
+                                <state key="normal" title="Check"/>
                                 <connections>
                                     <action selector="touchCheck" destination="WUJ-pw-8ye" eventType="touchUpInside" id="Wb8-uG-hsC"/>
                                 </connections>

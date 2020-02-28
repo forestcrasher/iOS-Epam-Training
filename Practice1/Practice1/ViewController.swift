@@ -18,7 +18,11 @@ class ViewController: UIViewController {
             game.checkAnswer(number: number)
             updateViewFromModel()
         } else {
-            showAlert(title: "Введите число", message: "Поле не должно быть пустым!", actionTitle: "Еще раз")
+            showAlert(
+                title: NSLocalizedString("alertEnterNumber", comment: ""),
+                message: NSLocalizedString("alertEnterNumberDescription", comment: ""),
+                actionTitle: NSLocalizedString("alertActionAgain", comment: "")
+            )
         }
     }
     
@@ -27,13 +31,25 @@ class ViewController: UIViewController {
         
         switch progress {
             case .high:
-                showAlert(title: "Слишком много", message: "Вы ввели слишком большое число!", actionTitle: "Еще раз")
+                showAlert(
+                    title: NSLocalizedString("alertTooHigh", comment: ""),
+                    message: NSLocalizedString("alertTooHighDescription", comment: ""),
+                    actionTitle: NSLocalizedString("alertActionAgain", comment: "")
+                )
     
             case .lower:
-                showAlert(title: "Слишком мало", message: "Вы ввели слишком маленькое число!", actionTitle: "Еще раз")
+                showAlert(
+                    title: NSLocalizedString("alertTooLower", comment: ""),
+                    message: NSLocalizedString("alertTooLowerDescription", comment: ""),
+                    actionTitle: NSLocalizedString("alertActionAgain", comment: "")
+                )
             
             case .guessed:
-                showAlert(title: "Вы угадали", message: "Вы попали в точку!", actionTitle: "Играть заново") { [weak self] _ in
+                showAlert(
+                    title: NSLocalizedString("alertYouGuessed", comment: ""),
+                    message: NSLocalizedString("alertYouGuessedDescription", comment: ""),
+                    actionTitle: NSLocalizedString("alertActionPlayAgain", comment: "")
+                ) { [weak self] _ in
                     self?.textField.text = ""
                     self?.game.start()
                 }
@@ -49,10 +65,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Угадай число"
+        title = NSLocalizedString("mainTitle", comment: "")
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        textField.placeholder = "Введите число"
-        button.setTitle("Проверить", for: .normal)
+        textField.placeholder = NSLocalizedString("textFieldPlaceholder", comment: "")
+        button.setTitle(NSLocalizedString("buttonTitle", comment: ""), for: .normal)
     }
 }
