@@ -8,70 +8,51 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var randomNumber = 0
-    var isWinner = false
+    private var game = Model()
     
-    private enum Constants {
-        static let labelGuessed = "Угадал"
-        static let labelMany = "Много"
-        static let labelLittle = "Мало"
-        static let labelEnterNumber = "Введите число"
-        static let buttonLabelCheck = "Проверить"
-        static let buttonLabelStartAgain = "Повторить"
-    }
-
-    @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var answerField: UITextField!
-    @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var button: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        startGame()
-    }
-    
-    func startGame() {
-        setRandomNumber()
-    }
-    
-    func stopGame() {
-        statusLabel.text = Constants.labelGuessed
-        checkButton.setTitle(Constants.buttonLabelStartAgain, for: .normal)
-        answerField.isUserInteractionEnabled = false
-        isWinner = true
-    }
-    
-    func restartGame() {
-        setRandomNumber()
-        
-        statusLabel.text = ""
-        checkButton.setTitle(Constants.buttonLabelCheck, for: .normal)
-        answerField.text = ""
-        answerField.isUserInteractionEnabled = true
-        isWinner = false
-    }
-    
-    func setRandomNumber() {
-        randomNumber = Int.random(in: 0 ..< 100)
-    }
-    
-    func checkAnswer() {
-        if let answer = answerField.text {
-            if let answerNumber = Int(answer) {
-                if answerNumber > randomNumber {
-                    statusLabel.text = Constants.labelMany
-                } else if answerNumber < randomNumber {
-                    statusLabel.text = Constants.labelLittle
-                } else {
-                    stopGame()
-                }
-            } else {
-                statusLabel.text = Constants.labelEnterNumber
-            }
+    @IBAction private func touchCheck() {
+        if let answer = textField.text, let number = Int(answer) {
+            game.checkAnswer(number: number)
+            updateViewFromModel()
+        } else {
+            showAlert(title: "Введите число", message: "Поле не должно быть пустым!", actionTitle: "Еще раз")
         }
     }
     
-    @IBAction func buttonAction() {
-        isWinner ? restartGame() : checkAnswer()
+    private func updateViewFromModel() {
+        guard let progress = game.progress else { return }
+        
+        switch progress {
+            case .high:
+                showAlert(title: "Слишком много", message: "Вы ввели слишком большое число!", actionTitle: "Еще раз")
+    
+            case .lower:
+                showAlert(title: "Слишком мало", message: "Вы ввели слишком маленькое число!", actionTitle: "Еще раз")
+            
+            case .guessed:
+                showAlert(title: "Вы угадали", message: "Вы попали в точку!", actionTitle: "Играть заново") { [weak self] _ in
+                    self?.textField.text = ""
+                    self?.game.start()
+                }
+        }
+    }
+    
+    private func showAlert(title: String?, message: String?, actionTitle: String?, actionHandler: ((UIAlertAction) -> Void)? = nil) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: actionTitle, style: .default, handler: actionHandler))
+        present(ac, animated: true)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Угадай число"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        textField.placeholder = "Введите число"
+        button.setTitle("Проверить", for: .normal)
     }
 }
-
