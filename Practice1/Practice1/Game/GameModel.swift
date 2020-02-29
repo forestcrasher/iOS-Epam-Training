@@ -15,9 +15,10 @@ enum Progress {
 
 struct GameModel {
     private(set) var progress: Progress?
-    private(set) var moveCounter = 0
     private(set) var fromRandomNumber: Int?
     private(set) var toRandomNumber: Int?
+    private(set) var moveCounter = 0
+    private(set) var sessionGameCounter = 0
     private var randomNumber: Int?
     
     private mutating func setRandomNumber() {
@@ -35,6 +36,7 @@ struct GameModel {
     mutating func start() {
         progress = nil
         moveCounter = 0
+        sessionGameCounter += 1
         setRandomNumber()
     }
     

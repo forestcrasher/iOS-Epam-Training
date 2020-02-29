@@ -19,6 +19,7 @@
 		E64862FC23D769AF00874E2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E64862FA23D769AF00874E2F /* Main.storyboard */; };
 		E64862FE23D769B200874E2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E64862FD23D769B200874E2F /* Assets.xcassets */; };
 		E648630123D769B200874E2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E64862FF23D769B200874E2F /* LaunchScreen.storyboard */; };
+		E6CE0DB6240AE11100188219 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CE0DB5240AE11100188219 /* StatisticsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		E64862FD23D769B200874E2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E648630023D769B200874E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E648630223D769B200874E2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6CE0DB5240AE11100188219 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,11 +113,20 @@
 				E6466D6E24096E3F008EAA63 /* Supporting Files */,
 				E60E66A42409CC33004B8990 /* Game */,
 				E60E66A72409CEA3004B8990 /* Settings */,
+				E6CE0DB4240AE0BF00188219 /* Statistics */,
 				E64862FA23D769AF00874E2F /* Main.storyboard */,
 				E648630223D769B200874E2F /* Info.plist */,
 				E6466D7524099969008EAA63 /* Localizable.strings */,
 			);
 			path = Practice1;
+			sourceTree = "<group>";
+		};
+		E6CE0DB4240AE0BF00188219 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				E6CE0DB5240AE11100188219 /* StatisticsViewController.swift */,
+			);
+			path = Statistics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +206,7 @@
 				E60E66A92409CEFF004B8990 /* SettingsModel.swift in Sources */,
 				E60668172409DFEE007150C3 /* SettingItem.swift in Sources */,
 				E64862F923D769AF00874E2F /* GameViewController.swift in Sources */,
+				E6CE0DB6240AE11100188219 /* StatisticsViewController.swift in Sources */,
 				E64862F523D769AF00874E2F /* AppDelegate.swift in Sources */,
 				E64862F723D769AF00874E2F /* SceneDelegate.swift in Sources */,
 				E60E66A62409CE99004B8990 /* SettingsViewController.swift in Sources */,

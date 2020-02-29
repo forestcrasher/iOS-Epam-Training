@@ -43,7 +43,11 @@ class GameViewController: UIViewController {
     }
     
     @objc private func touchStats() {
-        
+        if let vc = storyboard?.instantiateViewController(identifier: "Statistics") as? StatisticsViewController {
+            vc.moveCounter = game?.moveCounter ?? 0
+            vc.sessionGameCounter = game?.sessionGameCounter ?? 0
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     override func viewDidLoad() {
@@ -67,7 +71,7 @@ class GameViewController: UIViewController {
         
         game = GameModel(fromRandomNumber: fromRandomNumber, toRandomNumber: toRandomNumber)
         
-        title = NSLocalizedString("mainTitle", comment: "")
+        title = NSLocalizedString("gameTitle", comment: "")
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)

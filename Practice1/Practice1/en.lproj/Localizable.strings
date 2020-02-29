@@ -1,11 +1,14 @@
-"mainTitle" = "Guess the number";
+"gameTitle" = "Guess the number";
 "settingsTitle" = "Settings";
+"statisticsTitle" = "Statistics";
 "textFieldPlaceholder" = "Enter number";
 "checkButtonTitle" = "Check";
 "saveButtonTitle" = "Save";
 "moveCounterTitle" = "Move counter";
 "settingFromNumber" = "Number from";
 "settingToNumber" = "Number to";
+"statisticMoveCounter" = "Count of moves";
+"statisticSessionGameCounter" = "Count of games";
 "settingsTitleSectionRandomNumberRange" = "Settings random number";
 "alertFieldsNotFilledCorrectly" = "Fields not filled correctly";
 "alertFromMoreToDescription" = "Number FROM should not be more number TO!";

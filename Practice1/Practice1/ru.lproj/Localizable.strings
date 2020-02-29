@@ -1,11 +1,14 @@
-"mainTitle" = "Угадай число";
+"gameTitle" = "Угадай число";
 "settingsTitle" = "Настройки";
+"statisticsTitle" = "Статистика";
 "textFieldPlaceholder" = "Введите число";
 "checkButtonTitle" = "Проверить";
 "saveButtonTitle" = "Сохранить";
 "moveCounterTitle" = "Количество ходов";
 "settingFromNumber" = "Число от";
 "settingToNumber" = "Число до";
+"statisticMoveCounter" = "Количество ходов";
+"statisticSessionGameCounter" = "Количество игр";
 "settingsTitleSectionRandomNumberRange" = "Настройки случайного числа";
 "alertFieldsNotFilledCorrectly" = "Неверно заполнены поля";
 "alertFromMoreToDescription" = "Число ОТ не может быть больше ДО!";
