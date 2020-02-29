@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  GameModel.swift
 //  Practice1
 //
 //  Created by Anton Pryakhin on 28.02.2020.
@@ -13,7 +13,7 @@ enum Progress {
     case lower
 }
 
-struct MainModel {
+struct GameModel {
     private(set) var progress: Progress?
     private(set) var moveCounter = 0
     private(set) var fromRandomNumber: Int?

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9BO-9B-WA5">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -23,16 +22,16 @@
             </objects>
             <point key="canvasLocation" x="716" y="799"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="6gL-lO-je8">
             <objects>
-                <viewController id="WUJ-pw-8ye" customClass="MainViewController" customModule="Practice1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WUJ-pw-8ye" customClass="GameViewController" customModule="Practice1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="USF-6F-RSj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gDx-08-Wh5">
-                                <rect key="frame" x="127.66666666666669" y="389" width="120" height="34"/>
+                                <rect key="frame" x="240" y="283" width="120" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="iTf-St-ByW"/>
                                 </constraints>
@@ -40,14 +39,14 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2C-I4-C3v">
-                                <rect key="frame" x="165.66666666666666" y="431" width="44" height="30"/>
+                                <rect key="frame" x="278" y="325" width="44" height="30"/>
                                 <state key="normal" title="Check"/>
                                 <connections>
                                     <action selector="touchCheck" destination="WUJ-pw-8ye" eventType="touchUpInside" id="Wb8-uG-hsC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move counter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="za8-7c-HKT">
-                                <rect key="frame" x="16" y="104" width="150" height="21"/>
+                                <rect key="frame" x="16" y="60" width="150" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="g9I-3u-ZUA"/>
                                 </constraints>
@@ -85,7 +84,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="Settings" id="5K7-xD-ITg" customClass="SettingsViewController" customModule="Practice1" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="TCW-kB-M5G">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <connections>
                             <outlet property="dataSource" destination="5K7-xD-ITg" id="aKJ-Ij-8yb"/>

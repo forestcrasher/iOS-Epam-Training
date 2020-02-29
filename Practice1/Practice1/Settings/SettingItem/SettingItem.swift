@@ -1,9 +1,8 @@
 //
-//  SettingItemTableViewCell.swift
+//  SettingItem.swift
 //  Practice1
 //
-//  Created by Антон Пряхин on 29.02.2020.
-//  Copyright © 2020 Anton Pryakhin. All rights reserved.
+//  Created by Anton Pryakhin on 29.02.2020.
 //
 
 import UIKit

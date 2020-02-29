@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GameViewController.swift
 //  Practice1
 //
 //  Created by Anton Pryakhin on 21.01.2020.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-    private var game: MainModel?
+class GameViewController: UIViewController {
+    private var game: GameModel?
     
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var checkButton: UIButton!
@@ -65,7 +65,7 @@ class MainViewController: UIViewController {
             }
         }
         
-        game = MainModel(fromRandomNumber: fromRandomNumber, toRandomNumber: toRandomNumber)
+        game = GameModel(fromRandomNumber: fromRandomNumber, toRandomNumber: toRandomNumber)
         
         title = NSLocalizedString("mainTitle", comment: "")
         navigationController?.navigationBar.prefersLargeTitles = true
