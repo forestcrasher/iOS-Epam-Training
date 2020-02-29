@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="716" y="799"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="6gL-lO-je8">
             <objects>
-                <viewController id="WUJ-pw-8ye" customClass="ViewController" customModule="Practice1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WUJ-pw-8ye" customClass="MainViewController" customModule="Practice1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="USF-6F-RSj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,11 +73,30 @@
                         <outlet property="checkButton" destination="w2C-I4-C3v" id="ESb-Cn-Xbe"/>
                         <outlet property="moveCounter" destination="za8-7c-HKT" id="F2d-hq-YVX"/>
                         <outlet property="textField" destination="gDx-08-Wh5" id="u4f-1z-NsK"/>
+                        <segue destination="5K7-xD-ITg" kind="show" identifier="showSettings" id="kBq-9i-beE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jks-al-P74" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1665" y="799"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="DJO-dO-rzT">
+            <objects>
+                <tableViewController storyboardIdentifier="Settings" id="5K7-xD-ITg" customClass="SettingsViewController" customModule="Practice1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="TCW-kB-M5G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <connections>
+                            <outlet property="dataSource" destination="5K7-xD-ITg" id="aKJ-Ij-8yb"/>
+                            <outlet property="delegate" destination="5K7-xD-ITg" id="YCh-Cd-GdM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="rVO-th-ZjJ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w08-ac-wOA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="498"/>
         </scene>
     </scenes>
 </document>

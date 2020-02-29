@@ -1,7 +1,17 @@
 "mainTitle" = "Guess the number";
+"settingsTitle" = "Settings";
 "textFieldPlaceholder" = "Enter number";
 "checkButtonTitle" = "Check";
+"saveButtonTitle" = "Save";
 "moveCounterTitle" = "Move counter";
+"settingFromNumber" = "Number from";
+"settingToNumber" = "Number to";
+"settingsTitleSectionRandomNumberRange" = "Settings random number";
+"alertFieldsNotFilledCorrectly" = "Fields not filled correctly";
+"alertFromMoreToDescription" = "Number FROM should not be more number TO!";
+"alertFromEqualToDescription" = "Number FROM should not be equal number TO!";
+"alertSetRandomRange" = "Configure range";
+"alertSetRandomRangeDescription" = "Set the range of the random number!";
 "alertEnterNumber" = "Enter number";
 "alertEnterNumberDescription" = "The field should not be empty!";
 "alertTooHigh" = "Too high";
@@ -12,3 +22,4 @@
 "alertYouGuessedDescription" = "You hit the nail right on the head!";
 "alertActionAgain" = "Again";
 "alertActionPlayAgain" = "Play again";
+"alertActionOK" = "OK";

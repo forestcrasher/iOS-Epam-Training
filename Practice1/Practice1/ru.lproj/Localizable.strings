@@ -1,7 +1,17 @@
 "mainTitle" = "Угадай число";
+"settingsTitle" = "Настройки";
 "textFieldPlaceholder" = "Введите число";
 "checkButtonTitle" = "Проверить";
+"saveButtonTitle" = "Сохранить";
 "moveCounterTitle" = "Количество ходов";
+"settingFromNumber" = "Число от";
+"settingToNumber" = "Число до";
+"settingsTitleSectionRandomNumberRange" = "Настройки случайного числа";
+"alertFieldsNotFilledCorrectly" = "Неверно заполнены поля";
+"alertFromMoreToDescription" = "Число ОТ не может быть больше ДО!";
+"alertFromEqualToDescription" = "Число ОТ и ДО не могут быть равны!";
+"alertSetRandomRange" = "Настройте диапазон";
+"alertSetRandomRangeDescription" = "Установите диапазон случайного числа!";
 "alertEnterNumber" = "Введите число";
 "alertEnterNumberDescription" = "Поле не должно быть пустым!";
 "alertTooHigh" = "Слишком много";
@@ -12,3 +22,4 @@
 "alertYouGuessedDescription" = "Вы попали в точку!";
 "alertActionAgain" = "Еще раз";
 "alertActionPlayAgain" = "Играть заново";
+"alertActionOK" = "OK";
