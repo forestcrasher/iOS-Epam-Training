@@ -17,7 +17,7 @@ class SettingsViewController: UITableViewController {
     
     @objc private func saveSettings() {
         if let fromValue = settings?.getValue(by: "from"), let toValue = settings?.getValue(by: "to"),
-            let from = Int(fromValue), let to = Int(toValue)  {
+            let from = Int(fromValue), let to = Int(toValue) {
             
             if to > from {
                 pullRandomRangeForParent?(from, to)
@@ -43,7 +43,7 @@ class SettingsViewController: UITableViewController {
         
         settings = SettingsModel(list: [
             (title: NSLocalizedString("settingFromNumber", comment: ""), value: String(from), key: "from"),
-            (title: NSLocalizedString("settingToNumber", comment: ""), value: String(to), key: "to"),
+            (title: NSLocalizedString("settingToNumber", comment: ""), value: String(to), key: "to")
         ])
         
         saveButton = UIButton(type: .custom)
@@ -59,6 +59,8 @@ class SettingsViewController: UITableViewController {
         title = NSLocalizedString("settingsTitle", comment: "")
         navigationItem.largeTitleDisplayMode = .never
         
+        tableView.allowsSelection = false
+        
         tableView.register(UINib(nibName: "SettingItem", bundle: nil), forCellReuseIdentifier: "SettingItem")
     }
 
@@ -68,8 +70,8 @@ class SettingsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-            case 0: return NSLocalizedString("settingsTitleSectionRandomNumberRange", comment: "")
-            default: return nil
+        case 0: return NSLocalizedString("settingsTitleSectionRandomNumberRange", comment: "")
+        default: return nil
         }
     }
 
@@ -78,17 +80,25 @@ class SettingsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingItem", for: indexPath) as! SettingItem
-        cell.settingTitle?.text = settings?.list[indexPath.row].title
-        cell.settingValue?.text = settings?.list[indexPath.row].value
-        cell.changeSettingItemValueToModel = { [weak self] value in
-            self?.saveButton?.isEnabled = Bool(value != "")
-            self?.settings?.setValue(value: value, at: indexPath.row)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "SettingItem", for: indexPath) as? SettingItem {
+            cell.settingTitle?.text = settings?.list[indexPath.row].title
+            cell.settingValue?.text = settings?.list[indexPath.row].value
+            cell.changeSettingItemValueToModel = { [weak self] value in
+                self?.saveButton?.isEnabled = !value.isEmpty
+                self?.settings?.setValue(value: value, at: indexPath.row)
+            }
+            return cell
         }
-        return cell
+        
+        return UITableViewCell()
     }
     
-    private func showAlert(title: String?, message: String?, actionTitle: String?, actionHandler: ((UIAlertAction) -> Void)? = nil) {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         return 44.0
+    }
+    
+    private func showAlert(title: String?, message: String?, actionTitle: String?,
+                           actionHandler: ((UIAlertAction) -> Void)? = nil) {
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: actionTitle, style: .default, handler: actionHandler))
         present(ac, animated: true)

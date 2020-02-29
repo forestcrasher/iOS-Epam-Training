@@ -27,10 +27,7 @@
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j40-0z-CvP">
                         <rect key="frame" x="132" y="13" width="266" height="18.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                        <connections>
-                            <action selector="settingValueEditingChanged:" destination="UXI-e0-OJM" eventType="editingChanged" id="Oyd-xc-caC"/>
-                        </connections>
+                        <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
                 <constraints>

@@ -17,4 +17,3 @@ class SettingItem: UITableViewCell {
         changeSettingItemValueToModel?(sender.text ?? "0")
     }
 }
-

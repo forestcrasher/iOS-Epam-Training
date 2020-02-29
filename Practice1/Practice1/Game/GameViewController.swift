@@ -102,30 +102,30 @@ class GameViewController: UIViewController {
         guard let progress = game?.progress else { return }
         
         switch progress {
-            case .high:
-                showAlert(
-                    title: NSLocalizedString("alertTooHigh", comment: ""),
-                    message: NSLocalizedString("alertTooHighDescription", comment: ""),
-                    actionTitle: NSLocalizedString("alertActionAgain", comment: "")
-                )
-    
-            case .lower:
-                showAlert(
-                    title: NSLocalizedString("alertTooLower", comment: ""),
-                    message: NSLocalizedString("alertTooLowerDescription", comment: ""),
-                    actionTitle: NSLocalizedString("alertActionAgain", comment: "")
-                )
-            
-            case .guessed:
-                showAlert(
-                    title: NSLocalizedString("alertYouGuessed", comment: ""),
-                    message: NSLocalizedString("alertYouGuessedDescription", comment: ""),
-                    actionTitle: NSLocalizedString("alertActionPlayAgain", comment: "")
-                ) { [weak self] _ in
-                    self?.textField.text = ""
-                    self?.game?.start()
-                    self?.updateMoveCounter()
-                }
+        case .high:
+            showAlert(
+                title: NSLocalizedString("alertTooHigh", comment: ""),
+                message: NSLocalizedString("alertTooHighDescription", comment: ""),
+                actionTitle: NSLocalizedString("alertActionAgain", comment: "")
+            )
+
+        case .lower:
+            showAlert(
+                title: NSLocalizedString("alertTooLower", comment: ""),
+                message: NSLocalizedString("alertTooLowerDescription", comment: ""),
+                actionTitle: NSLocalizedString("alertActionAgain", comment: "")
+            )
+        
+        case .guessed:
+            showAlert(
+                title: NSLocalizedString("alertYouGuessed", comment: ""),
+                message: NSLocalizedString("alertYouGuessedDescription", comment: ""),
+                actionTitle: NSLocalizedString("alertActionPlayAgain", comment: "")
+            ) { [weak self] _ in
+                self?.textField.text = ""
+                self?.game?.start()
+                self?.updateMoveCounter()
+            }
         }
         
         updateMoveCounter()
@@ -140,7 +140,8 @@ class GameViewController: UIViewController {
         checkButton.isEnabled = true
     }
     
-    private func showAlert(title: String?, message: String?, actionTitle: String?, actionHandler: ((UIAlertAction) -> Void)? = nil) {
+    private func showAlert(title: String?, message: String?, actionTitle: String?,
+                           actionHandler: ((UIAlertAction) -> Void)? = nil) {
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: actionTitle, style: .default, handler: actionHandler))
         present(ac, animated: true)

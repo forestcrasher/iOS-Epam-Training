@@ -18,11 +18,13 @@ class StatisticsViewController: UITableViewController {
         
         list = [
             (title: NSLocalizedString("statisticMoveCounter", comment: ""), value: String(moveCounter)),
-            (title: NSLocalizedString("statisticSessionGameCounter", comment: ""), value: String(sessionGameCounter)),
+            (title: NSLocalizedString("statisticSessionGameCounter", comment: ""), value: String(sessionGameCounter))
         ]
         
         title = NSLocalizedString("statisticsTitle", comment: "")
         navigationItem.largeTitleDisplayMode = .never
+        
+        tableView.allowsSelection = false
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
