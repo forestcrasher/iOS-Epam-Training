@@ -24,19 +24,11 @@ protocol SearchViewPresenterProtocol: class {
 }
 
 class SearchPresenter: SearchViewPresenterProtocol {
-    weak var view: SearchViewProtocol?
-    
-    let networkService: NetworkServiceProtocol!
-    let router: RouterProtocol
-    
+    private weak var view: SearchViewProtocol?
+    private let networkService: NetworkServiceProtocol!
+    private let router: RouterProtocol
     var results: [Person]?
     var isRecents: Bool?
-    
-    required init(view: SearchViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
-        self.view = view
-        self.networkService = networkService
-        self.router = router
-    }
     
     func clearResults() {
         results = nil
@@ -46,25 +38,25 @@ class SearchPresenter: SearchViewPresenterProtocol {
     
     func searchPerson(name: String) {
         clearResults()
-        
         networkService.searchPerson(name: name) { [weak self] result in
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let results):
-                    self.results = results
-                    self.isRecents = false
-                    self.view?.updateResults()
-                    
-                case .failure(let error):
-                    self.view?.handleError(error: error)
-                }
+            switch result {
+            case .success(let results):
+                self?.results = results
+                self?.isRecents = false
+                self?.view?.updateResults()
+            case .failure(let error):
+                self?.view?.handleError(error: error)
             }
         }
     }
     
     func tapOnPerson(person: Person?) {
         router.showDetail(person: person)
+    }
+    
+    required init(view: SearchViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
+        self.view = view
+        self.networkService = networkService
+        self.router = router
     }
 }

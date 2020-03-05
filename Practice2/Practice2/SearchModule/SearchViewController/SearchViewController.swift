@@ -9,7 +9,6 @@ import UIKit
 
 class SearchViewController: UIViewController {
     var presenter: SearchViewPresenterProtocol!
-    
     private var pendingRequestWorkItem: DispatchWorkItem?
    
     @IBOutlet private weak var searchBar: UISearchBar!
@@ -35,12 +34,12 @@ class SearchViewController: UIViewController {
         hideError()
     }
     
-    func showError(text: String) {
+    private func showError(text: String) {
         error.text = text
         error.isHidden = false
     }
     
-    func hideError() {
+    private func hideError() {
         error.text = ""
         error.isHidden = true
     }
@@ -48,16 +47,19 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: SearchViewProtocol {
     func updateResults() {
-        hideError()
-        loader.stopAnimating()
-        tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.hideError()
+            self?.loader.stopAnimating()
+            self?.tableView.reloadData()
+        }
     }
     
     func handleError(error: Error) {
-        loader.stopAnimating()
-        
-        if let text = (error as NSError).userInfo["NSLocalizedDescription"] as? String {
-            showError(text: text)
+        DispatchQueue.main.async { [weak self] in
+            self?.loader.stopAnimating()
+            if let text = (error as NSError).userInfo["NSLocalizedDescription"] as? String {
+                self?.showError(text: text)
+            }
         }
     }
 }

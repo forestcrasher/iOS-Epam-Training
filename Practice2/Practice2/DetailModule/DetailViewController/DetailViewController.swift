@@ -9,7 +9,6 @@ import UIKit
 
 class DetailViewController: UITableViewController {
     var presenter: DetailViewPresenterProtocol!
-    
     var details: [(title: String, value: String)]?
     
     override func viewDidLoad() {

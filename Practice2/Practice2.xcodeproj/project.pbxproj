@@ -13,7 +13,6 @@
 		E6148FFF23F809F5008114A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6148FFD23F809F5008114A8 /* LaunchScreen.storyboard */; };
 		E61A8BB5240DD23000465F36 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61A8BB4240DD23000465F36 /* SearchViewController.xib */; };
 		E61A8BB7240DD63400465F36 /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61A8BB6240DD63400465F36 /* AssemblyBuilder.swift */; };
-		E61A8BCA240DDD0D00465F36 /* SearchPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61A8BC9240DDD0D00465F36 /* SearchPresenterTest.swift */; };
 		E61A8BCF240DE42500465F36 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61A8BCD240DE42500465F36 /* SearchTableViewCell.swift */; };
 		E61A8BD0240DE42500465F36 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61A8BCE240DE42500465F36 /* SearchTableViewCell.xib */; };
 		E61A8BD3240E976600465F36 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61A8BD2240E976500465F36 /* NetworkService.swift */; };
@@ -22,6 +21,7 @@
 		E61A8BE2240EBA8900465F36 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61A8BE0240EBA8900465F36 /* DetailViewController.xib */; };
 		E61A8BE4240EC00C00465F36 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61A8BE3240EC00C00465F36 /* Router.swift */; };
 		E69E516224117EB800D66AE4 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E69E516124117EB800D66AE4 /* .swiftlint.yml */; };
+		E69E51642411993500D66AE4 /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69E51632411993500D66AE4 /* RouterTest.swift */; };
 		E6CE0DC2240DC3C400188219 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CE0DC1240DC3C400188219 /* Person.swift */; };
 		E6CE0DC4240DC47800188219 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CE0DC3240DC47800188219 /* SearchPresenter.swift */; };
 		E6CE0DC8240DCCEF00188219 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CE0DC7240DCCEF00188219 /* SearchViewController.swift */; };
@@ -48,7 +48,6 @@
 		E61A8BB6240DD63400465F36 /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
 		E61A8BBE240DDCA800465F36 /* Practice2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Practice2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E61A8BC2240DDCA800465F36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E61A8BC9240DDD0D00465F36 /* SearchPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenterTest.swift; sourceTree = "<group>"; };
 		E61A8BCD240DE42500465F36 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		E61A8BCE240DE42500465F36 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		E61A8BD2240E976500465F36 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -57,6 +56,7 @@
 		E61A8BE0240EBA8900465F36 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		E61A8BE3240EC00C00465F36 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E69E516124117EB800D66AE4 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		E69E51632411993500D66AE4 /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		E6CE0DC1240DC3C400188219 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		E6CE0DC3240DC47800188219 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		E6CE0DC7240DCCEF00188219 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +86,7 @@
 				E6148FF123F809F2008114A8 /* Practice2 */,
 				E61A8BBF240DDCA800465F36 /* Practice2Tests */,
 				E6148FF023F809F2008114A8 /* Products */,
+				E69E516124117EB800D66AE4 /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,7 +110,6 @@
 				E61A8BB6240DD63400465F36 /* AssemblyBuilder.swift */,
 				E61A8BE3240EC00C00465F36 /* Router.swift */,
 				E614900023F809F5008114A8 /* Info.plist */,
-				E69E516124117EB800D66AE4 /* .swiftlint.yml */,
 			);
 			path = Practice2;
 			sourceTree = "<group>";
@@ -117,18 +117,10 @@
 		E61A8BBF240DDCA800465F36 /* Practice2Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E61A8BC8240DDCBF00465F36 /* SearchModuleTest */,
+				E69E51632411993500D66AE4 /* RouterTest.swift */,
 				E61A8BC2240DDCA800465F36 /* Info.plist */,
 			);
 			path = Practice2Tests;
-			sourceTree = "<group>";
-		};
-		E61A8BC8240DDCBF00465F36 /* SearchModuleTest */ = {
-			isa = PBXGroup;
-			children = (
-				E61A8BC9240DDD0D00465F36 /* SearchPresenterTest.swift */,
-			);
-			path = SearchModuleTest;
 			sourceTree = "<group>";
 		};
 		E61A8BCB240DE3B300465F36 /* SearchViewController */ = {
@@ -339,7 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E61A8BCA240DDD0D00465F36 /* SearchPresenterTest.swift in Sources */,
+				E69E51642411993500D66AE4 /* RouterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
