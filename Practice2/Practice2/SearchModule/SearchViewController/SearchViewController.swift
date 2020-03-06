@@ -9,7 +9,9 @@ import UIKit
 
 class SearchViewController: UIViewController {
     var presenter: SearchViewPresenterProtocol!
+    
     private var pendingRequestWorkItem: DispatchWorkItem?
+    private var recents = [Person]()
    
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
@@ -20,6 +22,8 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Star Wars"
+        
+        view.backgroundColor = .systemBackground
         
         searchBar.delegate = self
         searchBar.backgroundImage = UIImage()
@@ -48,10 +52,20 @@ class SearchViewController: UIViewController {
 extension SearchViewController: SearchViewProtocol {
     func updateResults() {
         DispatchQueue.main.async { [weak self] in
-            self?.hideError()
             self?.loader.stopAnimating()
             self?.tableView.reloadData()
         }
+    }
+    
+    func clearResults() {
+        DispatchQueue.main.async { [weak self] in
+            self?.hideError()
+            self?.tableView.reloadData()
+        }
+    }
+    
+    func updateRecents() {
+        recents = Array(presenter.recents)
     }
     
     func handleError(error: Error) {
@@ -69,7 +83,6 @@ extension SearchViewController: UISearchBarDelegate {
         pendingRequestWorkItem?.cancel()
         
         let trimmedSearchText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
-        
         if trimmedSearchText.isEmpty {
             presenter.clearResults()
             return
@@ -84,6 +97,18 @@ extension SearchViewController: UISearchBarDelegate {
         pendingRequestWorkItem = requestWorkItem
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: requestWorkItem)
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.searchTextField.resignFirstResponder()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
 }
 
 extension SearchViewController: UITableViewDelegate {
@@ -92,28 +117,49 @@ extension SearchViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let person = presenter.results?[indexPath.row]
-        presenter.tapOnPerson(person: person)
+        if let results = presenter.results {
+            let person = results[indexPath.row]
+            presenter.tapOnPerson(person: person)
+        } else {
+            let person = recents[indexPath.row]
+            presenter.tapOnPerson(person: person)
+        }
+        searchBar.searchTextField.resignFirstResponder()
+    }
+    
+    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if presenter.results != nil {
+            return .none
+        } else {
+            return .delete
+        }
     }
 }
 
 extension SearchViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return presenter.results != nil ? 1 : 0
+        if presenter.results != nil {
+            return 1
+        } else {
+            return !recents.isEmpty ? 1 : 0
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let isRecents = presenter.isRecents else { return nil }
-        
-        if section == 0 && !(presenter.results?.isEmpty ?? true) {
-            return isRecents ? "Recents" : "Search"
+        if section == 0 {
+            if let results = presenter.results {
+                return !results.isEmpty ? "Search" : nil
+            } else {
+                return !recents.isEmpty ? "Recents" : nil
+            }
         }
-        
         return nil
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let results = presenter.results else { return 0 }
+        guard let results = presenter.results else {
+            return recents.count
+        }
         
         if results.isEmpty {
             showError(text: "People not found")
@@ -124,11 +170,34 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as? SearchTableViewCell {
-            cell.labelText?.text = presenter.results?[indexPath.row].name
+            guard let results = presenter.results else {
+                cell.labelText?.text = recents[indexPath.row].name
+                cell.sublabelText?.text = "Character"
+                return cell
+            }
+            
+            cell.labelText?.text = results[indexPath.row].name
             cell.sublabelText?.text = "Character"
             return cell
         }
         
         return UITableViewCell()
+    }
+    
+    private func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell.EditingStyle {
+          return .none
+     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if presenter.results != nil { return }
+        if editingStyle == .delete {
+            presenter.deleteRecent(person: recents[indexPath.row])
+            recents.remove(at: indexPath.row)
+            if recents.isEmpty {
+                clearResults()
+            } else {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
     }
 }

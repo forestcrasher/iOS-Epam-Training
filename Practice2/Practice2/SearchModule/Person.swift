@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Person: Decodable {
+struct Person: Decodable, Hashable {
     let name: String
     let height: String
     let mass: String
@@ -24,4 +24,12 @@ struct Person: Decodable {
     let created: String
     let edited: String
     let url: String
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+    
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.name == rhs.name
+    }
 }

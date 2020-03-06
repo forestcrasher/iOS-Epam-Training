@@ -9,16 +9,19 @@ import Foundation
 
 protocol SearchViewProtocol: class {
     func updateResults()
+    func clearResults()
+    func updateRecents()
     func handleError(error: Error)
 }
 
 protocol SearchViewPresenterProtocol: class {
+    var recents: Set<Person> { get set }
     var results: [Person]? { get set }
-    var isRecents: Bool? { get set }
     
     func clearResults()
     func searchPerson(name: String)
     func tapOnPerson(person: Person?)
+    func deleteRecent(person: Person)
     
     init(view: SearchViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
 }
@@ -27,13 +30,12 @@ class SearchPresenter: SearchViewPresenterProtocol {
     private weak var view: SearchViewProtocol?
     private let networkService: NetworkServiceProtocol!
     private let router: RouterProtocol
+    var recents = Set<Person>()
     var results: [Person]?
-    var isRecents: Bool?
     
     func clearResults() {
         results = nil
-        isRecents = nil
-        view?.updateResults()
+        view?.clearResults()
     }
     
     func searchPerson(name: String) {
@@ -42,7 +44,6 @@ class SearchPresenter: SearchViewPresenterProtocol {
             switch result {
             case .success(let results):
                 self?.results = results
-                self?.isRecents = false
                 self?.view?.updateResults()
             case .failure(let error):
                 self?.view?.handleError(error: error)
@@ -51,7 +52,15 @@ class SearchPresenter: SearchViewPresenterProtocol {
     }
     
     func tapOnPerson(person: Person?) {
+        if let person = person {
+            recents.insert(person)
+            view?.updateRecents()
+        }
         router.showDetail(person: person)
+    }
+    
+    func deleteRecent(person: Person) {
+        recents.remove(person)
     }
     
     required init(view: SearchViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
