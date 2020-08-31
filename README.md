@@ -1,2 +1,2 @@
-# ios-school-practice
-iOS School Practice
+# iOS Epam Training
+iOS Development Training by EPAM
