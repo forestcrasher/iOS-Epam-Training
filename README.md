@@ -1,2 +1,2 @@
 # iOS Epam Training
-iOS Development Training by EPAM
+iOS Development by EPAM Training
